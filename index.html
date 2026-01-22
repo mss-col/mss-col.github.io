@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSS-COL Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0d0d0d;
+            color: #e5e5e5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Thunder Lightning Background */
+        .thunder-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(88, 86, 214, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(30, 30, 35, 1) 0%, #0d0d0d 100%);
+        }
+
+        .lightning {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                rgba(167, 139, 250, 0.03) 50%,
+                transparent 100%
+            );
+            animation: lightning 8s infinite;
+        }
+
+        .lightning:nth-child(2) { animation-delay: 3s; }
+        .lightning:nth-child(3) { animation-delay: 6s; }
+
+        @keyframes lightning {
+            0%, 89%, 91%, 93%, 100% { opacity: 0; }
+            90%, 92% { opacity: 1; }
+        }
+
+        /* Electric Lines */
+        .electric-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(167, 139, 250, 0.6);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            box-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 50%; top: 60%; animation-delay: 1s; }
+        .particle:nth-child(5) { left: 70%; top: 30%; animation-delay: 3s; }
+        .particle:nth-child(6) { left: 80%; top: 70%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 90%; top: 50%; animation-delay: 2.5s; }
+        .particle:nth-child(8) { left: 40%; top: 90%; animation-delay: 4.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-100px) scale(1.5); opacity: 1; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            text-shadow: 0 0 60px rgba(167, 139, 250, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #737373;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(38, 38, 42, 0.8) 0%, rgba(24, 24, 27, 0.9) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6366f1, transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(99, 102, 241, 0.1);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(167, 139, 250, 0.2));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #f5f5f5;
+        }
+
+        .card p {
+            color: #a3a3a3;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #a78bfa, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #737373;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+
+        .copyright {
+            color: #525252;
+            font-size: 0.85rem;
+        }
+
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo { font-size: 2.5rem; }
+            .container { padding: 40px 16px; }
+            .stats { gap: 40px; }
+            .stat-value { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="thunder-bg">
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="lightning"></div>
+        <div class="electric-grid"></div>
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">MSS-COL</h1>
+            <p class="tagline">Knowledge Hub & Development Workspace</p>
+        </header>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">&#128218;</div>
+                <h3>Knowledge Sharing</h3>
+                <p>Documentation, tutorials, and comprehensive guides for developers and enthusiasts.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#128187;</div>
+                <h3>Script Collection</h3>
+                <p>Curated scripts and automation tools to streamline workflows and boost productivity.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#128300;</div>
+                <h3>Research & Development</h3>
+                <p>Experimental projects, prototypes, and cutting-edge technology exploration.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#128295;</div>
+                <h3>Bug Fixing</h3>
+                <p>Solutions, patches, and debugging techniques for common and complex issues.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#129302;</div>
+                <h3>AI & Machine Learning</h3>
+                <p>LLM integrations, AI-powered tools, and machine learning experiments.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">&#9889;</div>
+                <h3>Future Projects</h3>
+                <p>Upcoming innovations and next-generation development initiatives.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Active Development</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">&#8734;</div>
+                <div class="stat-label">Possibilities</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">v1.0</div>
+                <div class="stat-label">Current Build</div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/mss-col">GitHub</a>
+                <a href="https://github.com/mss-col?tab=repositories">Repositories</a>
+                <a href="#">Documentation</a>
+            </div>
+            <p class="copyright">
+                <span class="pulse-dot"></span>
+                &copy; 2025 MSS-COL. Continuously evolving.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
