@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund Policy — CRON MARKETING</title>
+<meta name="description" content="Refund policy for CRON MARKETING digital services. Payments processed by CHIP (FPX & DuitNow QR).">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0d0d0d;
+        --text: #e5e5e5;
+        --body: #d4d4d4;
+        --muted: #8a8a8a;
+        --violet: #a78bfa;
+        --indigo: #6366f1;
+        --indigo-soft: #818cf8;
+        --card: linear-gradient(135deg, rgba(38, 38, 42, 0.8) 0%, rgba(24, 24, 27, 0.9) 100%);
+        --line: rgba(99, 102, 241, 0.12);
+        --line-strong: rgba(99, 102, 241, 0.3);
+        --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        font-size: 16px;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Ambient background sama dengan MSS-COL Hub */
+    .thunder-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(88, 86, 214, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(30, 30, 35, 1) 0%, #0d0d0d 100%);
+    }
+
+    .thunder-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; position: relative; z-index: 1; }
+
+    a { color: var(--violet); }
+
+    :focus-visible { outline: 2px solid var(--indigo-soft); outline-offset: 3px; border-radius: 4px; }
+
+    ::selection { background: rgba(99, 102, 241, 0.35); }
+
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+
+    .back {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--violet); text-decoration: none;
+        border: 1px solid var(--line); padding: 9px 14px; border-radius: 999px;
+        transition: border-color 0.3s, background 0.3s;
+    }
+
+    .back:hover { border-color: var(--line-strong); background: rgba(99, 102, 241, 0.08); }
+
+    .brand { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700; letter-spacing: -1px; margin-bottom: 10px;
+        background: linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #818cf8 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .meta {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+        color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 44px;
+    }
+
+    section { margin-bottom: 36px; }
+
+    h2 { display: flex; align-items: baseline; gap: 12px; font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+    h2 .no { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--violet); letter-spacing: 0.1em; }
+
+    p { color: var(--body); font-size: 0.95rem; margin-bottom: 10px; }
+
+    ul { list-style: none; padding: 0; margin: 0 0 10px; }
+    ul li { color: var(--body); font-size: 0.95rem; padding-left: 20px; position: relative; margin-bottom: 6px; }
+    ul li::before { content: '\25B8'; position: absolute; left: 2px; top: 2px; color: var(--violet); font-size: 0.8rem; }
+
+    strong { color: #c4b5fd; font-weight: 600; }
+
+    .inline { color: var(--violet); text-decoration: none; border-bottom: 1px solid rgba(167, 139, 250, 0.3); transition: border-color 0.3s; }
+    .inline:hover { border-color: var(--violet); }
+
+    .callout {
+        background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 22px 24px; margin: 0 0 44px; position: relative; overflow: hidden;
+    }
+    .callout::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg, transparent, #6366f1, transparent);
+    }
+    .callout .tag {
+        display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 8px;
+    }
+    .callout p { margin: 0 0 8px; color: var(--body); font-size: 0.92rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .table-wrap {
+        overflow-x: auto; margin: 4px 0 10px;
+        border: 1px solid var(--line); border-radius: var(--radius);
+        -webkit-overflow-scrolling: touch;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+    th {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--violet); text-align: left;
+        padding: 14px 16px; background: rgba(99, 102, 241, 0.06); border-bottom: 1px solid var(--line);
+    }
+    td { padding: 13px 16px; color: var(--body); border-bottom: 1px solid rgba(99, 102, 241, 0.06); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr { transition: background 0.3s; }
+    tbody tr:hover { background: rgba(99, 102, 241, 0.04); }
+    td:first-child { color: var(--text); font-weight: 500; }
+
+    footer {
+        margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+        display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center;
+    }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer nav a {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s;
+    }
+    footer nav a:hover, footer nav a[aria-current="page"] { color: var(--violet); }
+    footer .copy { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); }
+
+    /* Jadual bertindan pada skrin kecil (bukan skrol mendatar) */
+    @media (max-width: 560px) {
+        .container { padding: 32px 18px 56px; }
+        .callout { padding: 18px; }
+        .table-wrap { border: none; overflow: visible; }
+        table { min-width: 0; }
+        thead { display: none; }
+        tbody tr {
+            display: block; margin-bottom: 12px;
+            border: 1px solid var(--line); border-radius: 12px; padding: 6px 0;
+        }
+        tbody td { display: block; border-bottom: none; padding: 6px 14px; }
+        tbody td:first-child { margin-bottom: 2px; }
+    }
+
+    /* Mode gerakan dikurangkan & forced-colors */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    @media (forced-colors: active) {
+        h1 { -webkit-text-fill-color: CanvasText; background: none; }
+    }
+</style>
+</head>
+<body>
+<div class="thunder-bg"></div>
+<main class="container">
+  <div class="top">
+    <a class="back" href="index.html">&larr; MSS-COL Hub</a>
+    <span class="brand">CRON MARKETING</span>
+  </div>
+
+  <h1>Refund Policy</h1>
+  <p class="meta">Effective 23 October 2026 &middot; Payments via CHIP (FPX &middot; DuitNow QR)</p>
+
+  <div class="callout" lang="ms">
+    <span class="tag">Ringkasan &mdash; Bahasa Melayu</span>
+    <p>Perkhidmatan digital &mdash; bayaran balik penuh dalam <strong>7 hari pertama pengaktifan</strong> jika perkhidmatan rosak dan tidak dapat dipulihkan, tidak sebagaimana yang diterangkan, atau, sebelum pengaktifan, jika penghantaran tertunda dan anda memilih untuk membatalkan. Kerja pembangunan tersuai &mdash; deposit tidak dikembalikan selepas kerja bermula. Jika sesuatu peringkat lewat lebih 14 hari daripada tarikh akhirnya tanpa sebab munasabah, bayaran bagi peringkat yang belum dihantar akan dikembalikan. Permintaan dibuat melalui e-mel bersama nombor transaksi; keputusan dalam 5 hari bekerja.</p>
+  </div>
+
+  <section>
+    <h2><span class="no">01</span>About This Policy</h2>
+    <p>CRON MARKETING ("we", "us") provides digital services: online service subscriptions and custom development solutions. MSS-COL Hub is operated by CRON MARKETING (business registration no. 201703408153, EB-A201711080115). All payments for our services are collected through CHIP (CHIP IN Sdn. Bhd.), a merchant acquirer registered with Bank Negara Malaysia, supporting FPX online banking and DuitNow QR.</p>
+    <p>This policy explains when and how refunds are issued. It applies to all payments made to CRON MARKETING for our services through our payment links or checkout pages hosted by CHIP, and to voluntary contributions as stated in section 06.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">02</span>Summary by Service</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Refund terms by service">
+      <table>
+        <thead>
+          <tr><th scope="col">Service</th><th scope="col">Refund terms</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Digital service (new subscription)</td><td>Full refund within <strong>7 days of activation</strong> if the service is faulty and we cannot restore it, if it is materially different from what was described; or, before activation, if delivery is delayed beyond the stated timeline and you choose to cancel.</td></tr>
+          <tr><td>Digital service (renewal)</td><td>Non-refundable once the renewal period has started, except for duplicated payments (see 05).</td></tr>
+          <tr><td>Custom development project</td><td>Quoted per project. The deposit becomes non-refundable once development starts. If we fail to deliver an agreed milestone more than 14 days after its deadline (without cause), undelivered milestone payments are refunded.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="no">03</span>How to Request a Refund</h2>
+    <ul>
+      <li>Email <a class="inline" href="mailto:mssvpn@gmail.com">mssvpn@gmail.com</a> within 7 days of activation (or, for a delayed delivery, any time before activation).</li>
+      <li>Include: your name, the transaction ID or receipt (from CHIP/FPX/DuitNow), the service involved, and the reason for the request.</li>
+      <li>We respond with a decision within <strong>5 business days</strong>.</li>
+      <li>For custom development projects, refund requests are accepted within 30 days of the missed milestone deadline.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="no">04</span>How Refunds Are Paid</h2>
+    <p>Approved refunds are issued through CHIP to your original payment method (your FPX online banking account or DuitNow-linked account), or by bank transfer to an account in the payer's name where a refund to the original method is not possible. Depending on your bank, funds normally appear within <strong>5&ndash;14 business days</strong> after we submit the refund.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">05</span>Duplicate and Erroneous Payments</h2>
+    <p>If you are charged twice for the same period, or charged the wrong amount, we will refund the duplicate/extra amount in full once verified, regardless of the windows above. Please report it as soon as you notice it.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">06</span>Non-Refundable Items</h2>
+    <ul>
+      <li>Completed development milestones and delivered custom work.</li>
+      <li>Third-party costs already incurred on your behalf (domain registration, paid licences, third-party API fees).</li>
+      <li>Service periods already used beyond the 7-day window.</li>
+      <li>Accounts terminated for abuse, fraud, or unlawful use of the service.</li>
+      <li>Voluntary contributions sent via the donation QR on our website &mdash; these are gifts, not purchases, and are non-refundable.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="no">07</span>Service Credits Instead of Refunds</h2>
+    <p>For significant downtime caused by us, we first offer service credits (extension of your subscription period). A cash refund applies only if the fault persists and we cannot restore the service.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">08</span>Before You Dispute</h2>
+    <p>If something is wrong with a payment, please contact us first. Payment disputes raised directly with your bank take longer for everyone and may result in service suspension while the case is open. We resolve genuine issues quickly through the process above.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">09</span>Renewals and Cancellation</h2>
+    <p>Subscriptions are renewed by manual payment &mdash; we do not store any payment instrument and there is no auto-debit. To cancel a renewal, email us before your renewal date; the service remains active until the end of the period you have already paid for.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">10</span>General</h2>
+    <p>All prices are quoted in Malaysian Ringgit (MYR). This policy is governed by the laws of Malaysia.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">11</span>Contact</h2>
+    <p>CRON MARKETING<br>
+    Business Reg. No.: 201703408153 (EB-A201711080115)<br>
+    Email: <a class="inline" href="mailto:mssvpn@gmail.com">mssvpn@gmail.com</a><br>
+    Phone/WhatsApp: <a class="inline" href="tel:+60176343418">+60 17-634 3418</a><br>
+    Website: <a class="inline" href="https://mss-col.github.io">https://mss-col.github.io</a></p>
+  </section>
+
+  <footer>
+    <nav aria-label="Policies">
+      <a href="refund-policy.html" aria-current="page">Refund</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="shipping-policy.html">Shipping &amp; Delivery</a>
+    </nav>
+    <span class="copy">&copy; 2026 CRON MARKETING &middot; MSS-COL</span>
+  </footer>
+</main>
+</body>
+</html>

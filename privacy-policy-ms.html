@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polisi Privasi — CRON MARKETING</title>
+<meta name="description" content="Polisi privasi perkhidmatan digital CRON MARKETING, diproses selaras dengan PDPA 2010 (Malaysia). Bayaran dikendalikan oleh CHIP.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0d0d0d;
+        --text: #e5e5e5;
+        --body: #d4d4d4;
+        --muted: #8a8a8a;
+        --violet: #a78bfa;
+        --indigo: #6366f1;
+        --indigo-soft: #818cf8;
+        --card: linear-gradient(135deg, rgba(38, 38, 42, 0.8) 0%, rgba(24, 24, 27, 0.9) 100%);
+        --line: rgba(99, 102, 241, 0.12);
+        --line-strong: rgba(99, 102, 241, 0.3);
+        --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        font-size: 16px;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Ambient background sama dengan MSS-COL Hub */
+    .thunder-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+            radial-gradient(ellipse at 20% 20%, rgba(88, 86, 214, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(30, 30, 35, 1) 0%, #0d0d0d 100%);
+    }
+
+    .thunder-bg::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 48px 24px 72px; position: relative; z-index: 1; }
+
+    a { color: var(--violet); }
+
+    :focus-visible { outline: 2px solid var(--indigo-soft); outline-offset: 3px; border-radius: 4px; }
+
+    ::selection { background: rgba(99, 102, 241, 0.35); }
+
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+
+    .back {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--violet); text-decoration: none;
+        border: 1px solid var(--line); padding: 9px 14px; border-radius: 999px;
+        transition: border-color 0.3s, background 0.3s;
+    }
+
+    .back:hover { border-color: var(--line-strong); background: rgba(99, 102, 241, 0.08); }
+
+    .brand { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700; letter-spacing: -1px; margin-bottom: 10px;
+        background: linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #818cf8 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .meta {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+        color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 44px;
+    }
+
+    section { margin-bottom: 36px; }
+
+    h2 { display: flex; align-items: baseline; gap: 12px; font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+    h2 .no { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--violet); letter-spacing: 0.1em; }
+
+    p { color: var(--body); font-size: 0.95rem; margin-bottom: 10px; }
+
+    ul { list-style: none; padding: 0; margin: 0 0 10px; }
+    ul li { color: var(--body); font-size: 0.95rem; padding-left: 20px; position: relative; margin-bottom: 6px; }
+    ul li::before { content: '\25B8'; position: absolute; left: 2px; top: 2px; color: var(--violet); font-size: 0.8rem; }
+
+    strong { color: #c4b5fd; font-weight: 600; }
+
+    .inline { color: var(--violet); text-decoration: none; border-bottom: 1px solid rgba(167, 139, 250, 0.3); transition: border-color 0.3s; }
+    .inline:hover { border-color: var(--violet); }
+
+    .callout {
+        background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 22px 24px; margin: 0 0 44px; position: relative; overflow: hidden;
+    }
+    .callout::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg, transparent, #6366f1, transparent);
+    }
+    .callout .tag {
+        display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+        letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet); margin-bottom: 8px;
+    }
+    .callout p { margin: 0 0 8px; color: var(--body); font-size: 0.92rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .table-wrap {
+        overflow-x: auto; margin: 4px 0 10px;
+        border: 1px solid var(--line); border-radius: var(--radius);
+        -webkit-overflow-scrolling: touch;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 560px; }
+    th {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em;
+        text-transform: uppercase; color: var(--violet); text-align: left;
+        padding: 14px 16px; background: rgba(99, 102, 241, 0.06); border-bottom: 1px solid var(--line);
+    }
+    td { padding: 13px 16px; color: var(--body); border-bottom: 1px solid rgba(99, 102, 241, 0.06); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr { transition: background 0.3s; }
+    tbody tr:hover { background: rgba(99, 102, 241, 0.04); }
+    td:first-child { color: var(--text); font-weight: 500; }
+
+    footer {
+        margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line);
+        display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center;
+    }
+    footer nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    footer nav a {
+        font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em;
+        text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s;
+    }
+    footer nav a:hover, footer nav a[aria-current="page"] { color: var(--violet); }
+    footer .copy { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); }
+
+    /* Jadual bertindan pada skrin kecil (bukan skrol mendatar) */
+    @media (max-width: 560px) {
+        .container { padding: 32px 18px 56px; }
+        .callout { padding: 18px; }
+        .table-wrap { border: none; overflow: visible; }
+        table { min-width: 0; }
+        thead { display: none; }
+        tbody tr {
+            display: block; margin-bottom: 12px;
+            border: 1px solid var(--line); border-radius: 12px; padding: 6px 0;
+        }
+        tbody td { display: block; border-bottom: none; padding: 6px 14px; }
+        tbody td:first-child { margin-bottom: 2px; }
+    }
+
+    /* Mode gerakan dikurangkan & forced-colors */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    @media (forced-colors: active) {
+        h1 { -webkit-text-fill-color: CanvasText; background: none; }
+    }
+</style>
+</head>
+<body>
+<div class="thunder-bg"></div>
+<main class="container">
+  <div class="top">
+    <a class="back" href="index.html">&larr; MSS-COL Hub</a>
+    <span class="brand">CRON MARKETING</span>
+  </div>
+
+  <h1>Polisi Privasi</h1>
+  <p class="meta">Berkuat kuasa 23 Oktober 2026 &middot; PDPA 2010 (Malaysia) &middot; Bayaran melalui CHIP</p>
+
+  <div class="callout">
+    <span class="tag">Notis</span>
+    <p>Halaman ini ialah versi Bahasa Melayu bagi Polisi Privasi kami, disediakan selaras dengan seksyen 7(3) Akta Perlindungan Data Peribadi 2010. Sekiranya berlaku percanggahan tafsiran, versi Bahasa Inggeris diguna pakai.</p>
+    <p><a class="inline" href="privacy-policy.html" lang="en" hreflang="en">English version &rarr;</a></p>
+  </div>
+
+  <section>
+    <h2><span class="no">01</span>Siapa Kami</h2>
+    <p>CRON MARKETING ("kami") menyediakan perkhidmatan digital: langganan perkhidmatan dalam talian dan penyelesaian pembangunan tersuai. MSS-COL Hub dikendalikan oleh CRON MARKETING (Malaysia), no. pendaftaran perniagaan 201703408153 (EB-A201711080115). Laman awam kami ialah <a class="inline" href="https://mss-col.github.io">https://mss-col.github.io</a>. Kami ialah pengawal data bagi data peribadi yang diterangkan dalam polisi ini.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">02</span>Maklumat yang Kami Kumpul</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Kategori maklumat yang dikumpul">
+      <table>
+        <thead>
+          <tr><th scope="col">Kategori</th><th scope="col">Contoh</th><th scope="col">Sumber</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Identiti &amp; hubungan</td><td>Nama, alamat e-mel, nombor telefon, nama pengguna Telegram</td><td>Diberikan oleh anda semasa menempah atau menghubungi sokongan</td></tr>
+          <tr><td>Rekod bil</td><td>ID transaksi, jumlah, tarikh, jenis kaedah bayaran, rujukan pembayar</td><td>Notifikasi dan resit bayaran daripada CHIP</td></tr>
+          <tr><td>Data perkhidmatan</td><td>Tetapan perkhidmatan yang anda minta, spesifikasi projek, perbualan sokongan</td><td>Diberikan oleh anda semasa perkhidmatan dihantar</td></tr>
+          <tr><td>Log teknikal</td><td>Alamat IP, cap masa akses pada perkhidmatan yang kami kendalikan</td><td>Dikumpul secara automatik untuk keselamatan dan pencegahan penyalahgunaan</td></tr>
+          <tr><td>Derma</td><td>Nama dan rujukan pembayar seperti dipaparkan penyata bank anda</td><td>Notifikasi kredit bank kami</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Anda tidak diwajibkan memberikan data peribadi untuk melayari laman ini. Untuk membeli perkhidmatan, kami memerlukan butiran identiti dan bil di atas &mdash; tanpanya kami tidak dapat menghantar perkhidmatan atau menerbitkan resit yang sah.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">03</span>Yang Tidak Pernah Kami Kumpul</h2>
+    <p>Kami tidak mengumpul atau menyimpan nombor kad, maklumat log masuk perbankan dalam talian, atau sebarang data instrumen bayaran. Bagi bayaran FPX dan DuitNow QR, kebenaran bayaran anda berlaku di halaman perbankan dalam talian bank anda sendiri atau di halaman pembayaran CHIP &mdash; tidak pernah di laman web kami. CHIP (CHIP IN Sdn. Bhd.), pemeroleh pedagang yang berdaftar dengan Bank Negara Malaysia, memproses bayaran itu. Kami hanya menerima hasil transaksi (berjaya / gagal) dan satu rujukan transaksi. Nota: sumbangan sukarela melalui QR derma terus di laman kami diproses oleh bank kami, bukan melalui CHIP.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">04</span>Cara Kami Menggunakan Maklumat Anda</h2>
+    <ul>
+      <li>Untuk menyediakan, mengendalikan dan menyokong perkhidmatan digital yang anda tempah.</li>
+      <li>Untuk menerbitkan resit dan menguruskan bil, bayaran balik dan pertikaian.</li>
+      <li>Untuk melindungi sistem kami dan mencegah penyalahgunaan atau penipuan.</li>
+      <li>Untuk mematuhi obligasi undang-undang, cukai dan pengawalseliaan di Malaysia.</li>
+    </ul>
+    <p>Kami tidak menjual atau menyewakan data peribadi anda, dan kami tidak menggunakannya untuk pengiklanan pihak ketiga.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">05</span>Pembekal Perkhidmatan dan Pemindahan ke Luar Malaysia</h2>
+    <p>Kami berkongsi data peribadi hanya dengan pembekal yang diperlukan untuk menjalankan perkhidmatan kami:</p>
+    <ul>
+      <li><strong>CHIP (CHIP IN Sdn. Bhd.)</strong> &mdash; pemproses bayaran kami, setakat yang diperlukan untuk memproses bayaran dan bayaran balik.</li>
+      <li><strong>Google</strong> &mdash; Gmail menjadi hos alamat e-mel perniagaan kami; Google Fonts (digunakan oleh laman ini) dimuatkan daripada pelayan Google, dan alamat IP anda boleh dilihat oleh Google semasa halaman dimuatkan.</li>
+      <li><strong>Meta (WhatsApp) dan Telegram</strong> &mdash; hanya jika anda memilih saluran ini untuk sokongan.</li>
+      <li><strong>Pembekal infrastruktur</strong> &mdash; pembekal pusat data dan rangkaian yang digunakan untuk menghantar perkhidmatan kami.</li>
+      <li><strong>GitHub (GitHub Pages)</strong> &mdash; mengehos laman ini; alamat IP anda boleh dilihat oleh GitHub semasa halaman dimuatkan.</li>
+      <li><strong>Pihak berkuasa</strong> &mdash; apabila diwajibkan oleh undang-undang, perintah mahkamah, atau pengawal selia (termasuk keperluan Bank Negara Malaysia dan PayNet yang terpakai kepada pemproses bayaran kami).</li>
+    </ul>
+    <p>Pembekal ini mungkin memproses data di luar Malaysia. Pemindahan terhad kepada apa yang perlu untuk menghantar perkhidmatan yang anda tempah.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">06</span>Tempoh Penyimpanan</h2>
+    <p>Data akaun dan perkhidmatan disimpan selagi perkhidmatan anda aktif. Rekod bil disimpan selama 7 tahun selaras dengan keperluan undang-undang cukai Malaysia (Akta Cukai Pendapatan 1967). Log teknikal disimpan sehingga 12 bulan.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">07</span>Keselamatan</h2>
+    <p>Kami menggunakan penyulitan semasa penghantaran (TLS), kawalan akses atas dasar perlu tahu, dan pemisahan sistem bil daripada infrastruktur perkhidmatan. Tiada sistem yang sempurna; jika berlaku pelanggaran yang menjejaskan data anda, kami akan memaklumkan pengguna yang terjejas dan Pesuruhjaya Perlindungan Data Peribadi selaras dengan kehendak seksyen 12B PDPA (seperti dipinda 2024).</p>
+  </section>
+
+  <section>
+    <h2><span class="no">08</span>Hak Anda (PDPA)</h2>
+    <p>Anda boleh meminta akses kepada, pembetulan, atau pemadaman data peribadi anda (tertakluk kepada keperluan penyimpanan undang-undang), dan anda boleh menarik balik persetujuan untuk pemprosesan selanjutnya (tertakluk kepada pelaksanaan obligasi perkhidmatan yang masih aktif). Hantar e-mel ke <a class="inline" href="mailto:mssvpn@gmail.com">mssvpn@gmail.com</a> bersama bukti identiti; kami membalas dalam tempoh 21 hari.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">09</span>Cookies</h2>
+    <p>Laman kami tidak menggunakan cookies pengiklanan atau penjejakan. Sebarang cookies yang digunakan hanyalah cookies fungsian.</p>
+  </section>
+
+  <section>
+    <h2><span class="no">10</span>Pindaan dan Hubungan</h2>
+    <p>Kami mungkin mengemas kini polisi ini; pindaan penting akan diumumkan di halaman ini dengan tarikh berkuat kuasa baharu.</p>
+    <p>CRON MARKETING<br>
+    No. Pendaftaran Perniagaan: 201703408153 (EB-A201711080115)<br>
+    E-mel: <a class="inline" href="mailto:mssvpn@gmail.com">mssvpn@gmail.com</a><br>
+    Telefon/WhatsApp: <a class="inline" href="tel:+60176343418">+60 17-634 3418</a></p>
+  </section>
+
+  <footer>
+    <nav aria-label="Polisi">
+      <a href="refund-policy.html" lang="en" hreflang="en">Bayaran Balik (EN)</a>
+      <a href="privacy-policy-ms.html" aria-current="page">Privasi (BM)</a>
+      <a href="privacy-policy.html" lang="en" hreflang="en">Privacy (EN)</a>
+      <a href="shipping-policy.html" lang="en" hreflang="en">Penghantaran (EN)</a>
+    </nav>
+    <span class="copy">&copy; 2026 CRON MARKETING &middot; MSS-COL</span>
+  </footer>
+</main>
+</body>
+</html>
